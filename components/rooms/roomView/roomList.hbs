@@ -1,0 +1,61 @@
+
+<form >
+<link rel="stylesheet" href="room-stylesheets/tooplate-main.css">
+    <!-- Items Starts Here -->
+    <div class="featured-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h1>Standard Rooms</h1>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <div id="filters" class="button-group">
+              <button type="menu" class="btn btn-primary" data-filter="*" id="btnDefault" name = "sortPrice" value ="0">All Products</button>
+              <button class="btn btn-primary" data-filter=".new">Newest</button>
+              <button type="menu" class="btn btn-primary" data-filter=".low" id="btnLowPrice" name = "sortPrice" value ="1" >Low Price</button>
+              <button class="btn btn-primary" data-filter=".high" id="btnHightPrice" name = "sortPrice" value ="-1">Hight Price</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="featured container no-gutter">
+        <div class="row posts">
+            {{#each rooms}}
+              <div id="1" class="item new col-md-4">
+              <a href="/rooms/{{this.id}}">
+                <div class="featured-item">
+                  <img src="{{this.image}}" alt="">
+                  <h4>{{this.name}}</h4>
+                  <h6>{{this.price}}VND/night</h6>
+                </div>
+              </a>
+              </div>
+            {{/each}}
+        </div> 
+    </div>
+    <div class="page-navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li class="current-page"><input type="submit" name="page" value="1"></input></li>
+              <li><input type="submit" name="page" value="2"></input></li>
+              <li><input type="submit" name="page" value="3"></input></li>
+              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script src="room-javascripts/jquery.min.js"></script>
+      <script>
+        function check(){
+          if(document.getElementById("filters").i)
+        }
+      </script>
+    <!-- Featred Page Ends Here -->
+</form>
