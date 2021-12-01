@@ -1,13 +1,17 @@
 const roomService=require("./roomModel/roomService")
 let sortPrice = 0;
+let roomType =0;
 exports.list = async (req,res)=>{
   let nPerPage= 3;
   if(!isNaN(req.query.sortPrice)){
     sortPrice =parseInt(req.query.sortPrice)||0;
   };
+  if(!isNaN(req.query.roomType)){
+    roomType =parseInt(req.query.roomType)||0;
+  };
   let {page} = req.query;
   page= Math.max(parseInt(page)||1,1);
-  const rooms= await roomService.list(page, nPerPage, sortPrice);
+  const rooms= await roomService.list(page, nPerPage, sortPrice, roomType);
   res.render('../components/rooms/roomView/roomList' , { rooms:rooms });
 }
 exports.detail = async (req, res) =>{

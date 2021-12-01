@@ -1,13 +1,17 @@
 const room = require("../../../server/model/room")
 
-exports.list = (pageNumber, nPerPage, option) =>{
+exports.list = (pageNumber, nPerPage, option, roomType) =>{
+    let result=room.find({});
+    if(roomType!=0){
+        result=room.find({ type: roomType})
+    }
     if(option == 1){
-        return room.find({}).sort({price: 1}).skip(pageNumber > 0 ? (pageNumber -1)*nPerPage : 0).limit(nPerPage);
+        return result.sort({price: 1}).skip(pageNumber > 0 ? (pageNumber -1)*nPerPage : 0).limit(nPerPage);
     }
     if(option == -1){
-        return room.find({}).sort({price: -1}).skip(pageNumber > 0 ? (pageNumber -1)*nPerPage : 0).limit(nPerPage);
+        return result.sort({price: -1}).skip(pageNumber > 0 ? (pageNumber -1)*nPerPage : 0).limit(nPerPage);
     }
-    return room.find({}).skip(pageNumber > 0 ? (pageNumber -1)*nPerPage : 0).limit(nPerPage);
+    return result.skip(pageNumber > 0 ? (pageNumber -1)*nPerPage : 0).limit(nPerPage);
 }
 
 exports.detail = (roomID) =>{
