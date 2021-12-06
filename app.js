@@ -15,12 +15,6 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
-// app.engine('hbs',exphbs({
-//   extname:'hbs',
-//   defaultLayout:'layout',
-//   layoutsDir: path.join(__dirname,'/view/layout'),
-//   partitalsDir:path.join(__dirname,'/view/partital'),
-// }))
 
 app.set('view engine','hbs');
 
