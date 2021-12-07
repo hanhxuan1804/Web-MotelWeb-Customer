@@ -6,7 +6,8 @@ const logger = require('morgan');
 const session = require("express-session")
 
 //router
-const loginRouter = require('./components/auth/authRouter');
+const loginRouter = require('./components/auth/loginRouter');
+const logoutRouter =require('./components/auth/logoutRouter')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const roomsRouter = require('./components/rooms/roomModel/roomRouter');
@@ -41,6 +42,7 @@ app.use('/users', usersRouter);
 app.use('/rooms', roomsRouter);
 app.use('/services', servicesRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
