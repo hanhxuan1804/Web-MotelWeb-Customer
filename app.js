@@ -3,18 +3,21 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require("express-session")
 
-const loginRouter = require('./components/logins');
+//router
+const loginRouter = require('./components/auth/authRouter');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const roomsRouter = require('./components/rooms/roomModel/roomRouter');
 const servicesRouter = require('./components/services');
 
+const passport= require('./auth/passport')
+
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
 
+app.set('views', __dirname + '/views');
 
 app.set('view engine','hbs');
 
@@ -23,12 +26,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(passport.initialize());
+app.use(passport.session());
 
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user
+  //res.locals.authenticated = !req.user.anonymous
+  next()
+})
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/rooms', roomsRouter);
 app.use('/services', servicesRouter);
-app.use('/logins', loginRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

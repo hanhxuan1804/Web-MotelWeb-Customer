@@ -127,7 +127,11 @@
             <li class="nav-item"><a class="nav-link" href="#overviews">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="#footer_id">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="/rooms">Book Room</a></li>
-            <li class="nav-item"><a class="nav-link" href="/login">Log Out</a></li>
+            {{#if user}}
+            <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+            {{else}}
+             <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+            {{/if}}
           </ul>
 
         </div>
