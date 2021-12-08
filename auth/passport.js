@@ -1,6 +1,7 @@
 const passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
+const bcrypt=require("bcrypt");
 const account=require("../server/model/account");
 
  passport.use(new LocalStrategy({
@@ -16,7 +17,6 @@ const account=require("../server/model/account");
     if (!validPassword(user,password)) {
       return done(null, false, { message: 'Incorrect password.' });
     }
-    console.log(user);
     return done(null, user);
    }
    catch(err)  { return done(err); }
@@ -31,8 +31,9 @@ passport.deserializeUser(function(user, done) {
   return done(null, user);
 });
 
-function validPassword(user,password){
-  return user.password === password;
+async function validPassword(user,password){
+  const hashPassword= await bcrypt.hash(password, 10);
+  return user.password === hashPassword;
 }
 
 module.exports = passport;
