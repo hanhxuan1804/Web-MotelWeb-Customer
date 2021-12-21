@@ -811,3 +811,59 @@ a {
     width: 40px;
     margin: 20px;
 }
+
+/* Rating */
+.rating-css {
+	/* height: 100px;
+	width: 500px;
+	background: #101012;
+	border: 4px solid #838383;
+	padding: 20px; */
+  }
+  .rating-css div {
+	color: #ffe400;
+	font-size: 30px;
+	font-family: sans-serif;
+	font-weight: 800;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 20px 0;
+  }
+  .rating-css input {
+	display: none;
+  }
+  .rating-css input + label {
+	font-size: 20px;
+	text-shadow: 1px 1px 0 #ffe400;
+	cursor: pointer;
+  }
+  .rating-css input:checked + label ~ label {
+	color: #838383;
+  }
+  .rating-css label:active {
+	transform: scale(0.8);
+	transition: 0.3s ease;
+  }
+
+  .section-heading-rate{
+	margin-top: 10px;
+	margin-bottom: 10px;
+  }
+
+  .section-heading-rate h1{
+	font-size: 22px;
+	font-weight: 700;
+	color: #1e1e1e;
+	margin-top: 1px;
+	margin-left: 0px;
+  }
+
+  .rating-css .rate-bolder {
+	padding: 20px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+}
+
+.rating-css .comment input {
+	display: inline;
+  }

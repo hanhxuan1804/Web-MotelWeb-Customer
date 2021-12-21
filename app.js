@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session")
+const expressHandlebarsSection = require('express-handlebars-sections');
 
 //router
 const authRouter = require('./components/auth/authRouter');
@@ -12,10 +13,18 @@ const usersRouter = require('./routes/users');
 const roomsRouter = require('./components/rooms/roomModel/roomRouter');
 const servicesRouter = require('./components/services');
 
-const passport= require('./auth/passport')
+const passport= require('./auth/passport');
+const apiProductRouter = require('./api/product');
 
 const app = express();
 
+// const hbs = exphbs.create({
+//   extname:"hbs",
+//   defaultLayout:"main",
+//   layoutsDir:__dirname+"view/layouts",
+//   partialsDir:__dirname+"view/partitals",
+//   sections: expressHandlebarsSection(),
+// })
 
 app.set('views', __dirname + '/views');
 
@@ -30,6 +39,7 @@ app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/api/product',apiProductRouter);
 
 app.use(function (req, res, next) {
   res.locals.user = req.user
