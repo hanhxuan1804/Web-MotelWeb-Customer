@@ -15,6 +15,9 @@ const servicesRouter = require('./components/services');
 
 const passport= require('./auth/passport');
 const apiProductRouter = require('./api/product');
+const sessionHandler = require('./middlewares/sessionHandler');
+
+const loggers = require("./middlewares/logger");
 
 const app = express();
 
@@ -35,7 +38,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(session({
+  cookie:{maxAge:1000*60*60*24*365},
+  secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -51,6 +56,9 @@ app.use('/users', usersRouter);
 app.use('/rooms', roomsRouter);
 app.use('/services', servicesRouter);
 app.use('/auth', authRouter);
+
+app.use(sessionHandler);
+app.use(loggers);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
