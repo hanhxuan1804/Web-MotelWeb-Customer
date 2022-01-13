@@ -6,6 +6,9 @@ const logger = require('morgan');
 const session = require("express-session")
 const expressHandlebarsSection = require('express-handlebars-sections');
 
+
+
+
 //router
 const authRouter = require('./components/auth/authRouter');
 const indexRouter = require('./routes/index');
@@ -13,13 +16,21 @@ const usersRouter = require('./routes/users');
 const roomsRouter = require('./components/rooms/roomModel/roomRouter');
 const servicesRouter = require('./components/services');
 
+const myAccountRouter = require('./components/myAccount');
 const passport= require('./auth/passport');
 const apiProductRouter = require('./api/product');
 const sessionHandler = require('./middlewares/sessionHandler');
 
 const loggers = require("./middlewares/logger");
 
+
 const app = express();
+
+// var handlebars = require('handlebars');
+// var exphbs = require('exphbs');
+
+// app.engine('hbs', exphbs.create(handlebars));
+// app.set('view engine', 'hbs');
 
 // const hbs = exphbs.create({
 //   extname:"hbs",
@@ -28,6 +39,8 @@ const app = express();
 //   partialsDir:__dirname+"view/partitals",
 //   sections: expressHandlebarsSection(),
 // })
+// expressHandlebarsSection(hbs);
+
 
 app.set('views', __dirname + '/views');
 
@@ -56,6 +69,7 @@ app.use('/users', usersRouter);
 app.use('/rooms', roomsRouter);
 app.use('/services', servicesRouter);
 app.use('/auth', authRouter);
+app.use('/myaccount',myAccountRouter);
 
 app.use(sessionHandler);
 app.use(loggers);
