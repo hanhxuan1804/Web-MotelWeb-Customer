@@ -1,4 +1,5 @@
 const roomService=require("./roomModel/roomService")
+
 exports.list = async (req,res)=>{
   let nPerPage= 3;
   let sortPrice = 0;
@@ -16,6 +17,7 @@ exports.list = async (req,res)=>{
   const rooms= await roomService.list(page, nPerPage, sortPrice, roomType);
   res.render('../components/rooms/roomView/roomList' , { rooms:rooms , type: roomType});
 }
+
 exports.detail = async (req, res) =>{
   try{
     let roomID = req.params.roomID;

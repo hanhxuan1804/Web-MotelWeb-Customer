@@ -130,8 +130,12 @@
             <li class="nav-item"><a class="nav-link" href="#footer_id">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="/rooms">Book Room</a></li>
             {{#if user}}
-            <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
-            <li class="nav-item"><a class="nav-link" href="/myaccount">My Account</a></li>
+              <li class="nav-item">
+                {{!-- <a class="nav-link" href="/myaccount">My Account</a>  --}}
+                <a class="nav-link" href="/myaccount/user/{{user.id}}">My Account</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/auth/logout">Log Out</a></li>
+              
             {{else}}
              <li class="nav-item"><a class="nav-link" href="/auth/login">Log In</a></li>
             {{/if}}
@@ -148,7 +152,11 @@
 
   {{{body}}}
 
-
+  {{!-- <p>day la account</p> --}}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Include the above in your HEAD tag -->
 
 <!--Start of footer of header -->
 
