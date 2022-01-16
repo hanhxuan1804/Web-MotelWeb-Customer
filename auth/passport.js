@@ -10,7 +10,7 @@ const account=require("../server/model/account");
   },
  async function(username, password, done) {
    try{
-    const user = await account.findOne({ email: username }).lean();
+    const user = await account.findOne({ email: username, archived: false }).lean();
     if (!user) {
       return done(null, false, { message: 'Incorrect username.' });
     }
