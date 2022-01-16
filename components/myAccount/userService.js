@@ -10,3 +10,13 @@ exports.detail = (userID) =>{
         throw error;
     }   
 }
+
+exports.editAccount = async (item,id) =>{
+    user.findOneAndUpdate({_id: id},{$set: {
+        name: item.fullname, password: item.password, phoneNumber: item.phoneNumber, 
+        gender: item.gender, email: item.email}},
+        {upsert: false}, function(err, doc) {
+    if (err) return res.send(500, {error: err});
+    return 1;
+  });
+}

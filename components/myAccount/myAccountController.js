@@ -9,7 +9,6 @@ exports.detail = async (req, res) =>{
     catch (error) {
       res.render('error',  { message: '404' });
     }
-    // res.render('../components/myAccount/view/accountView');
 }
 
 exports.editAccount = async (req,res) =>{
@@ -21,4 +20,25 @@ exports.editAccount = async (req,res) =>{
     catch(error){
       res.render('error',  { message: '404' });
     }
+}
+
+exports.myaccountUpdate = async (req,res)=>{
+  let userID = req.params.userID;
+  const item = {
+  // username: req.body.name,
+  fullname: req.body.fullname,
+  password: req.body.password,
+  phoneNumber: req.body.phoneNumber,
+  idCard: req.body.idCard,
+  // date:req.body.date,
+  gender: req.body.gender,
+  email: req.body.email,
+  };
+  if(item.fullname==="")
+  {
+    res.redirect('/myAccount/view/editAccountView');
+  }else{
+    const account = await userService.editAccount(item,userID);
+    res.redirect('/logout');
+  }
 }
