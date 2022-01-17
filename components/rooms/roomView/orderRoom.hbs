@@ -1,0 +1,72 @@
+    <!--start-banner-->
+	<div class="banner">
+		<div class="container">
+			<div class="banner-top">
+				<h1>For Booking</h1>
+				<div class="banner-bottom">
+					<div class="bnr-one">
+						<div class="bnr-left">
+							<p>Ckeck In</p>
+						</div>
+						<div class="bnr-right">
+							<input class="date" id="datepicker" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="bnr-one">
+						<div class="bnr-left">
+							<p>Ckeck Out</p>
+						</div>
+						<div class="bnr-right">
+							<input class="date" id="datepicker1" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="bnr-one">
+						<div class="bnr-left">
+							<p>Adults</p>
+						</div>
+						<div class="bnr-right">
+							<select>
+								<option  class="rm" value="volvo">0</option>
+								<option  class="rm" value="saab">1</option>
+								<option  class="rm" value="opel">2</option>
+								<option  class="rm" value="audi">3</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="bnr-one">
+						<div class="bnr-left">
+							<p>Room</p>
+						</div>
+						<div class="bnr-right">
+							<select>
+								<option value="volvo">Select a type</option>
+								<option value="saab">Single</option>
+								<option value="opel">Double</option>
+								<option value="audi">Suite</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="bnr-btn">
+						<form>
+							<input type="submit" value="Book Now">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end-banner-->
+
+	<!---start-date-piker-->
+		<link rel="stylesheet" href="room-stylesheets/jquery-ui.css" />
+		<script src="room-javascripts/jquery-ui.js"></script>
+			<script>
+				$(function() {
+				$( "#datepicker,#datepicker1" ).datepicker();
+				});
+			</script>
+	<!---/End-date-piker-->

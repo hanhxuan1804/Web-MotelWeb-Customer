@@ -1,7 +1,7 @@
 const room = require("../../../server/model/room")
 
 exports.list = (pageNumber, nPerPage, option, roomType) =>{
-    let result=room.find({});
+    let result=room.find({archived:false});
     if(roomType!=0){
         result=room.find({ type: roomType})
     }

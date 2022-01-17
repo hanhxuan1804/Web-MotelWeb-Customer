@@ -16,7 +16,7 @@
           <div class="col-md-6">
             <div class="product-slider">
               <div id="slider" class="flexslider">
-                <ul class="slides">
+                <ul >
                   <li>
                     <img src="{{room.image}}" />
                   </li>
@@ -57,14 +57,19 @@
               <h6>{{room.price}} VND</h6>
               <p>A tradional 2-bed room with 1 long sofa and a cabinet, you also get a window view into our garden and enjoy the sight-seeing of the city from your bedroom </p>
               <span> {{room.quantity}} rooms available </span>
-              <form action="" method="get">
+
+              <a class="btn btn-danger " target="__blank" href="/rooms/{{room.id}}/order">
+                Book Now!
+              </a>
+
+              {{!-- <form action="" method="get">
                 <label for="quantity">Quantity:</label>
                 <input name="quantity" type="quantity" class="quantity-text" id="quantity"
                 	onfocus="if(this.value == '1') { this.value = ''; }"
                     onBlur="if(this.value == '') { this.value = '1';}"
                     value="1">
-                <input type="submit" class="button" value="Book Now!">
-              </form>
+                <input type="submit" class="button" value="Book Now!" href="/rooms/{{this.id}}/books">
+              </form> --}}
               <div class="down-content">
                 <div class="categories">
                   <h6>Category: <span><a href="#">2 beds</a>,<a href="#">Classic</a>,<a href="#">Window-view</a></span></h6>

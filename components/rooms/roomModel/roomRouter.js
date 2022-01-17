@@ -8,4 +8,6 @@ router.get('/', RoomController.list);
 
 router.get('/:roomID',RoomController.detail);
 
+router.get('/:roomID/order',RoomController.order);
+
 module.exports = router;

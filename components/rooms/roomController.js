@@ -28,3 +28,14 @@ exports.detail = async (req, res) =>{
     res.render('error',  { message: '404' });
   }
 }
+
+exports.order = async (req, res) =>{
+  try{
+    let roomID = req.params.roomID;
+    const room = await roomService.detail(roomID);
+    res.render('../components/rooms/roomView/orderRoom' , { room: room });
+  }
+  catch (error) {
+    res.render('error',  { message: '404' });
+  }
+}

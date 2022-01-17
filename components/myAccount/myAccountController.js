@@ -38,8 +38,7 @@ exports.myaccountUpdate = async (req,res)=>{
   {
     res.redirect('/myAccount/view/editAccountView');
   }else{
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa")
     const account = await userService.editAccount(item,userID);
-    res.redirect('/logout');
+    res.redirect('/auth/logout');
   }
 }
