@@ -25,19 +25,20 @@ exports.editAccount = async (req,res) =>{
 exports.myaccountUpdate = async (req,res)=>{
   let userID = req.params.userID;
   const item = {
-  // username: req.body.name,
-  fullname: req.body.fullname,
-  password: req.body.password,
-  phoneNumber: req.body.phoneNumber,
-  idCard: req.body.idCard,
-  // date:req.body.date,
-  gender: req.body.gender,
-  email: req.body.email,
+    // username: req.body.name,
+    fullname: req.body.fullname,
+    password: req.body.password,
+    phoneNumber: req.body.phone,
+    idCard: req.body.idCard,
+    // date:req.body.date,
+    gender: req.body.gender,
+    email: req.body.email,
   };
   if(item.fullname==="")
   {
     res.redirect('/myAccount/view/editAccountView');
   }else{
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa")
     const account = await userService.editAccount(item,userID);
     res.redirect('/logout');
   }
