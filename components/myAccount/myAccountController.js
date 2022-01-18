@@ -36,10 +36,11 @@ exports.myaccountUpdate = async (req,res)=>{
   };
   if(item.fullname==="")
   {
-    res.redirect('/myAccount/view/editAccountView');
+    const user = await userService.detail(userID);
+    res.render('../components/myAccount/view/editAccountView' , { user: user });
   }else{
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa")
+
     const account = await userService.editAccount(item,userID);
-    res.redirect('/logout');
+    res.redirect('/auth/logout');
   }
 }
