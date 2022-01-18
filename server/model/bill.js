@@ -14,7 +14,7 @@ const billSchema= new Schema (
     checkout: Date,
     numAdults: Number,
     numChilds: Number,
-    payment: Boolean,
+    solved: Boolean,
     serviceName:  [String],
   },
   {
