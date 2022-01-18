@@ -39,10 +39,6 @@ exports.myaccountUpdate = async (req,res)=>{
     const user = await userService.detail(userID);
     res.render('../components/myAccount/view/editAccountView' , { user: user });
   }else{
-<<<<<<< HEAD
-=======
-
->>>>>>> 5fd53e762c813238bf470fa0886070887558b86f
     const account = await userService.editAccount(item,userID);
     res.redirect('/auth/logout');
   }

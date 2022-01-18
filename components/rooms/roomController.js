@@ -31,9 +31,39 @@ exports.detail = async (req, res) =>{
 
 exports.order = async (req, res) =>{
   try{
-    let roomID = req.params.roomID;
-    const room = await roomService.detail(roomID);
-    res.render('../components/rooms/roomView/orderRoom' , { room: room });
+    
+    
+    if(res.locals.user === undefined){
+      res.redirect('/auth/login');
+    }
+    else{
+        let roomID = req.params.roomID;
+        const room = await roomService.detail(roomID);
+        let {datepicker} = req.query;
+        let {datepicker1} = req.query;
+        let {numAdults} = req.query;
+        let {numChilds} = req.query;
+        console.log(datepicker);
+        console.log(datepicker1);
+        console.log(numAdults);
+        console.log(numChilds);
+        var isDate = function(date) {
+          return (new Date(date) !== "Invalid Date") && !isNaN(new Date(date));
+        }
+        
+        if(datepicker === undefined || datepicker1 === undefined ||
+          numAdults === undefined || numChilds === undefined ||
+           !isDate(datepicker) || !isDate(datepicker1)) {
+            res.render('../components/rooms/roomView/orderRoom' , { room: room });
+         
+        }
+        else{
+          const result = await roomService.order(datepicker,datepicker1,numAdults,numChilds);
+          res.redirect('/rooms/'+ roomID);
+        }
+       
+    }
+   
   }
   catch (error) {
     res.render('error',  { message: '404' });

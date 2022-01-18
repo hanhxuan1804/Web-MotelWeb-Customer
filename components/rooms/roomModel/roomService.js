@@ -1,4 +1,5 @@
 const room = require("../../../server/model/room")
+const bill = require("../../../server/model/bill")
 
 exports.list = (pageNumber, nPerPage, option, roomType) =>{
     let result=room.find({archived:false});
@@ -17,4 +18,9 @@ exports.list = (pageNumber, nPerPage, option, roomType) =>{
 exports.detail = (roomID) =>{
     if((room.findOne({id: roomID}))==null) throw error;
     return room.findOne({id: roomID});
+}
+
+exports.order = (datepicker,datepicker1,numAdults,numChilds) =>{
+    console.log(bill.create({ checkin: datepicker, checkout: datepicker1, numAdults: numAdults,numChilds: numChilds }));
+    return bill.create({ checkin: datepicker, checkout: datepicker1, numAdults: numAdults,numChilds: numChilds, payment: false});
 }

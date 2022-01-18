@@ -15,7 +15,9 @@ exports.signup = async (req, res) =>{
       //login after create
       req.login(user, function(err) {
         if (err) { return next(err); }
-        return res.redirect('/myaccount/update');
+        let userID= user._id;
+        let url = '/myaccount/' + userID +'/editAccount';
+        return res.redirect(url);
       });
     }
   }catch(Error){

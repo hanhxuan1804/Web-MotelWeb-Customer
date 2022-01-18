@@ -1,15 +1,32 @@
-    <!--start-banner-->
+
+<link href="/room-oder/css/style.css" rel='stylesheet' type='text/css' />
+<script src="/room-oder/js/jquery.min.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="/room-oder/js/move-top.js"></script>
+<script type="text/javascript" src="/room-oder/js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+	<link rel="stylesheet" href="/room-oder/css/jquery-ui.css" />
+	<!--start-banner-->
+	<form>
 	<div class="banner">
 		<div class="container">
 			<div class="banner-top">
 				<h1>For Booking</h1>
+				<h2>{{room.name}}</h2>
 				<div class="banner-bottom">
 					<div class="bnr-one">
 						<div class="bnr-left">
 							<p>Ckeck In</p>
 						</div>
 						<div class="bnr-right">
-							<input class="date" id="datepicker" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+							<input class="date" name="datepicker" id="datepicker" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  required=>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -18,7 +35,7 @@
 							<p>Ckeck Out</p>
 						</div>
 						<div class="bnr-right">
-							<input class="date" id="datepicker1" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
+							<input class="date" name="datepicker1" id="datepicker1" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -27,46 +44,66 @@
 							<p>Adults</p>
 						</div>
 						<div class="bnr-right">
-							<select>
-								<option  class="rm" value="volvo">0</option>
-								<option  class="rm" value="saab">1</option>
-								<option  class="rm" value="opel">2</option>
-								<option  class="rm" value="audi">3</option>
+							<select name="numAdults">
+								<option class="rm" value="0">0</option>
+								<option class="rm" value="1">1</option>
+								<option class="rm" value="2">2</option>
+								<option  class="rm" value="3">3</option>
 							</select>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="bnr-one">
 						<div class="bnr-left">
-							<p>Room</p>
+							<p>Childs</p>
 						</div>
 						<div class="bnr-right">
-							<select>
-								<option value="volvo">Select a type</option>
-								<option value="saab">Single</option>
-								<option value="opel">Double</option>
-								<option value="audi">Suite</option>
+							<select name="numChilds" >
+								<option class="rm" value="0">0</option>
+								<option  class="rm" value="1">1</option>
+								<option   class="rm" value="2">2</option>
+								<option   class="rm" value="3">3</option>
 							</select>
 						</div>
 						<div class="clearfix"></div>
 					</div>
+					
 					<div class="bnr-btn">
-						<form>
+						
 							<input type="submit" value="Book Now">
-						</form>
+					
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
 	<!--end-banner-->
 
 	<!---start-date-piker-->
-		<link rel="stylesheet" href="room-stylesheets/jquery-ui.css" />
-		<script src="room-javascripts/jquery-ui.js"></script>
+		
+		<script src="/room-oder/js/jquery-ui.js"></script>
 			<script>
 				$(function() {
 				$( "#datepicker,#datepicker1" ).datepicker();
 				});
 			</script>
 	<!---/End-date-piker-->
+	<!--FlexSlider-->
+	<link rel="stylesheet" href="/room-oder/css/flexslider.css" type="text/css" media="screen" />
+	<script defer src="/room-oder/js/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+		});
+		</script>
+	</div>
+			<!--End-slider-script-->

@@ -10,6 +10,11 @@ const billSchema= new Schema (
     totalPrice: Number,
     customerEmail:  String,
     roomName:  String,
+    checkin: Date,
+    checkout: Date,
+    numAdults: Number,
+    numChilds: Number,
+    payment: Boolean,
     serviceName:  [String],
   },
   {
