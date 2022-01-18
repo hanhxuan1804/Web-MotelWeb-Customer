@@ -14,7 +14,7 @@ const authRouter = require('./components/auth/authRouter');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const roomsRouter = require('./components/rooms/roomModel/roomRouter');
-const servicesRouter = require('./components/services');
+const servicesRouter = require('./components/services/serviceModel/serviceRouter');
 
 const myAccountRouter = require('./components/myAccount');
 const passport= require('./auth/passport');

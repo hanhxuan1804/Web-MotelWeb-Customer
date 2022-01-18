@@ -101,68 +101,28 @@
 							<thead>
 								<tr class="domain-head">
 									<th scope="col">
-										Service ID
+										Service Name
 									</th>
 									<th scope="col">
-										Service Name
+										Service Type
 									</th>
 									<th scope="col">
 										Service Price
 									</th>
 									<th scope="col">
-										Service description
+										Service Image
 									</th>
 								</tr>
 							</thead>
 							<tbody>
+								{{#each items}}
 								<tr>
-									<td data-label="Service ID">001</td>
-									<td data-label="Service Name">Breakfast</td>
-									<td data-label="Service Price">$10</td>
-									<td data-label="Service Description">Breakfast will be brought to you every morning, selected from our distinct menu</td>
+									<td data-label="Service ID">{{this.name}}</td>
+									<td data-label="Service Name">{{this.type}}</td>
+									<td data-label="Service Price">${{this.price}}</td>
+									<td data-label="Service Description"><img src={{this.image}} alt="Image" class="img-fluid tm-gallery-img" /></td>
 								</tr>
-								<tr>
-                  <td data-label="Service ID">002</td>
-									<td data-label="Service Name">Buffet</td>
-									<td data-label="Service Price">$30 / person</td>
-									<td data-label="Service Description">You get access to our motel buffet area</td>
-								</tr>
-								<tr>
-                  <td data-label="Service ID">003</td>
-                  <td data-label="Service Name">Cleaning Maid</td>
-                  <td data-label="Service Price">$25</td>
-                  <td data-label="Service Description">A maid will be called upon your eoom to do some clean up work</td>
-								</tr>
-								<tr>
-                  <td data-label="Service ID">004</td>
-                  <td data-label="Service Name">Swimming Pool</td>
-                  <td data-label="Service Price">$18 / person</td>
-                  <td data-label="Service Description">You get unlimited access to the swiming pool</td>
-								</tr>
-								<tr>
-                  <td data-label="Service ID">005</td>
-                  <td data-label="Service Name">Bar Lounger</td>
-                  <td data-label="Service Price">$30 / person</td>
-                  <td data-label="Service Description">Gain access to the bar of the motel where you can drink with friends</td>
-								</tr>
-								<tr>
-                  <td data-label="Service ID">006</td>
-                  <td data-label="Service Name">Spa Day</td>
-                  <td data-label="Service Price">$45 / person</td>
-                  <td data-label="Service Description">Enjoy a relaxing session in our wonderful spa room</td>
-								</tr>
-								<tr>
-                  <td data-label="Service ID">007</td>
-                  <td data-label="Service Name">Dinner Reservation</td>
-                  <td data-label="Service Price">$50</td>
-                  <td data-label="Service Description">We will set up a romantic dinner party for you and your partner</td>
-								</tr>
-								<tr>
-                  <td data-label="Service ID">008</td>
-                  <td data-label="Service Name">Casino Night</td>
-                  <td data-label="Service Price">$65</td>
-                  <td data-label="Service Description">Get exclusive access to our casino and gamble away</td>
-								</tr>
+								{{/each}}
 							</tbody>
 						</table>
 					</div>

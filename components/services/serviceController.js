@@ -1,6 +1,6 @@
-exports.list=(req,res)=>{
-    
-    
-    
-    res.render('../components/services/serviceView/screen' , { title: 'Express' });
+const serviceService=require("./serviceModel/serviceService")
+
+exports.list= async (req,res)=>{
+  const services= await serviceService.list();
+  res.render('../components/services/serviceView/screen' , { items:services });
 }
