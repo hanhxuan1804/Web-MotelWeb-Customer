@@ -14,12 +14,13 @@
 		</script>
 	<link rel="stylesheet" href="/room-oder/css/jquery-ui.css" />
 	<!--start-banner-->
-	<form>
+	<form class="form-card" action="/rooms/{{room.id}}/order" method="get">
 	<div class="banner">
 		<div class="container">
 			<div class="banner-top">
 				<h1>For Booking</h1>
 				<h2>{{room.name}}</h2>
+				<h2>{{room.price}} /day</h2>
 				<div class="banner-bottom">
 					<div class="bnr-one">
 						<div class="bnr-left">
@@ -44,7 +45,7 @@
 							<p>Adults</p>
 						</div>
 						<div class="bnr-right">
-							<select name="numAdults">
+							<select name="numAdults" id="numAdults">
 								<option class="rm" value="0">0</option>
 								<option class="rm" value="1">1</option>
 								<option class="rm" value="2">2</option>
@@ -58,7 +59,7 @@
 							<p>Childs</p>
 						</div>
 						<div class="bnr-right">
-							<select name="numChilds" >
+							<select name="numChilds" id="numChilds" >
 								<option class="rm" value="0">0</option>
 								<option  class="rm" value="1">1</option>
 								<option   class="rm" value="2">2</option>
@@ -70,7 +71,7 @@
 					
 					<div class="bnr-btn">
 						
-							<input type="submit" value="Book Now">
+							<input type="submit" value="Book Now" onClick="CheckValidBill({{room.price}})">
 					
 					</div>
 				</div>
