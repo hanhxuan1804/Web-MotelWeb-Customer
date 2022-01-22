@@ -1,7 +1,11 @@
 
 
 <!-- End header -->
-
+<style>
+tr:hover {
+  background-color: yellow;
+}
+</style>
 	<div class="all-title-box">
 		<div class="container text-center">
 			<h1 style="color: black;">CONSIDER JOINING MEMBER CLUB<span class="m_1" style="color: gray;">With membership you will get some of these services free of charge</span></h1>
@@ -95,6 +99,7 @@
         <div class="container">
             <div class="section-title text-center">
                 <h3>Our service is here to Serve</h3>
+								<h3>You can only choose 1 service at a time</h3>
 				<div class="dmoain-pricing">
 					<div class="table-responsive-sm">
 						<table>
@@ -116,10 +121,10 @@
 							</thead>
 							<tbody>
 								{{#each items}}
-								<tr>
+								<tr id="{{this.name}}" style="cursor: pointer" onClick = "ProcessTextBoxClick(this)">
 									<td data-label="Service ID">{{this.name}}</td>
 									<td data-label="Service Name">{{this.type}}</td>
-									<td data-label="Service Price">${{this.price}}</td>
+									<td data-label="Service Price">{{this.price}} đ</td>
 									<td data-label="Service Description"><img src={{this.image}} alt="Image" class="img-fluid tm-gallery-img" /></td>
 								</tr>
 								{{/each}}
@@ -127,11 +132,13 @@
 						</table>
 					</div>
 				</div>
-        <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12">
-            <div class="message-box">
-                <a href="#" class="hover-btn-new"><span>Order Now!</span></a>
-            </div><!-- end messagebox -->
-        </div><!-- end col -->
       </div><!-- end title -->
     </div><!-- end container -->
   </div><!-- end section -->
+<script>
+	function ProcessTextBoxClick(element){
+		id=element.id;
+		url = "/services/"+id;
+		window.location.href = url;
+	}
+</script>

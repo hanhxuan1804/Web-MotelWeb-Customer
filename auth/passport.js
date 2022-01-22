@@ -24,7 +24,7 @@ const account=require("../server/model/account");
 ));
 
 passport.serializeUser(function(user, done) {
-  done(null,{id : user._id, username: user.username});
+  done(null,{id : user._id, username: user.email});
 });
 
 passport.deserializeUser(function(user, done) {

@@ -20,7 +20,7 @@ exports.detail = (roomID) =>{
     return room.findOne({id: roomID});
 }
 
-exports.order = (cusEmail, room, datepicker,datepicker1,numAdults,numChilds) =>{
-   
-    return bill.create({ customerEmail: cusEmail, roomName: room.name, checkin: datepicker, checkout: datepicker1, numAdults: numAdults,numChilds: numChilds, solved: false});
+exports.order = (cusEmail, room, datepicker,datepicker1,numAdults,numChilds,ammount) =>{
+
+    return bill.create({ customerEmail: cusEmail, roomName: room.name, checkin: datepicker, checkout: datepicker1, numAdults: numAdults,numChilds: numChilds,totalPrice:ammount, solved: false});
 }

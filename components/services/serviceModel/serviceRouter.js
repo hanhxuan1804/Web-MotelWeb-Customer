@@ -6,4 +6,6 @@ const ServiceController=require('../serviceController')
 /* GET home page. */
 router.get('/', ServiceController.list);
 
+router.get('/:serviceName', ServiceController.bookService);
+
 module.exports = router;

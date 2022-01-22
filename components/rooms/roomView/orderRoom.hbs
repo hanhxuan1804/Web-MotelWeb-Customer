@@ -6,7 +6,7 @@
 <script type="text/javascript" src="/room-oder/js/easing.js"></script>
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
+				$(".scroll").click(function(event){
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
@@ -14,7 +14,7 @@
 		</script>
 	<link rel="stylesheet" href="/room-oder/css/jquery-ui.css" />
 	<!--start-banner-->
-	<form class="form-card" action="/rooms/{{room.id}}/order" method="get">
+	<form>
 	<div class="banner">
 		<div class="container">
 			<div class="banner-top">
@@ -68,11 +68,19 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					
+					<div class="bnr-one" style="visibility: hidden">
+						<div class="bnr-left">
+							<p>Price</p>
+						</div>
+						<div class="bnr-right">
+							<input class="ammount" name="ammount" id="ammount" type="text" value="" placeholder="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"  required=>
+						</div>
+						<div class="clearfix"></div>
+					</div>
 					<div class="bnr-btn">
-						
+
 							<input type="submit" value="Book Now" onClick="CheckValidBill({{room.price}})">
-					
+
 					</div>
 				</div>
 			</div>
@@ -82,7 +90,7 @@
 	<!--end-banner-->
 
 	<!---start-date-piker-->
-		
+
 		<script src="/room-oder/js/jquery-ui.js"></script>
 			<script>
 				$(function() {
